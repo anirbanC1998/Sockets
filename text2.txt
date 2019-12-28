@@ -1,0 +1,33 @@
+def close(self):   # fill in your code here 
+        self.socket.settimeout(0.2)
+        fin_sent = False
+        while not self.done or not fin_sent:
+            #print(self.done, fin_sent) 
+
+            send a FIN packet using self.send_packet() function 
+            get FIN packet by using self.get_packet() function
+            check flag in FIN packet and if correct:
+                send packet 
+                self.done = True
+            elif fin_pack['flags'] == SOCK352_ACK and fin_pack['ack_no'] == self.my_rn + 1:
+                fin_sent = True
+
+        self.socket.settimeout(1)
+        timeout = 0
+        while True:
+            get FIN packet by using self.get_packet() function
+            timeout = fin_pack['payload_len']
+            if timeout == -1:
+                return
+            else:
+                if fin_pack['flags'] == SOCK352_FIN:
+                    send packet by using self.send_packet() function 
+        
+            
+
+    def send(self,buffer):
+        self.socket.settimeout(0.2)
+        # fill in your code here 
+ 
+        create a new thread with function self.recv_acks with input parameter goal = self.rn + len(buffer)
+
